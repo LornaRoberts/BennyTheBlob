@@ -13,7 +13,8 @@ p{
 #container{
   width: 500px;
   position: relative;
-  margin: auto;
+  margin: 0 auto;
+  height: 350px;
 }
 #background1{
   width: 300px;
@@ -46,7 +47,12 @@ p{
   top: -365px;
   left: 30px;
   position: relative;
+  animation: moveX 1.5s steps(10) infinite;
 }
+@keyframes moveX{
+      from{background-position-x:0px;}
+      to{background-position-x:-3270px;}
+    }
   
 #star{
   width: 40px;
@@ -206,4 +212,88 @@ p{
     transform: scale(0.5);
    top: -650px;
   }
+}
+
+.button {
+  background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin-top: 200px;
+  margin-left: 100px;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid red;
+}
+
+.button1:hover {
+  background-color: red !important;
+  color: white;
+}
+
+.bottom{
+  position: relative;
+}
+@media only screen and (min-width: 600px){
+  .button{
+   font-size: 20px;
+        }
+  .bottom{
+    margin-top: 170px;
+    margin-right: 100px;
+  }
+ }
+
+@media only screen and (min-width: 1000px){
+  .button{
+   font-size: 20px;
+    }
+  .bottom{
+   margin-top: 300px;
+    margin-right:0px;
+  }
+ }
+
+h2{
+  font-family: 'Bangers', cursive;
+  width: 300px;
+  text-align: center;
+}
+
+.deathScreen1{
+  text-align: center;
+  margin: 0 auto;
+  margin-top: -200px;
+  margin-left: 150px;
+  }
+
+@media only screen and (min-width: 600px){
+  .deathScreen1{
+    
+  margin-top: 00px;
+  margin-left: 200px;
+}
+}
+
+@media only screen and (min-width: 1000px){
+  .deathScreen1{
+  margin-top: -100px;
+  margin-left: 350px;
+}
+}
+
+.deadline{
+  font-size: 18px;
+  font-family: 'Bangers', cursive;
+  font-align: center;
+  margin-right: 100px;
 }

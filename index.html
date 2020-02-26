@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>CodePen - benny</title>
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html>
 <head>
    <meta charset="utf-8">
@@ -20,20 +10,24 @@
     <div id="container">
     <h1>Benny the Virtual Blob</h1>
     <p>Feed him, play with him, give him medicine but don't let him get too bored, hungry or ill or he'll die! How long can you keep him alive?</p>
+      <div id="game">
       <img src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561670551/virtual%20pet/little-board.png" id="background1" alt="background board">
       <img id="bar" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561857600/virtual%20pet/item-box.png" alt="icon bar">
-      <img id="donut" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561725898/virtual%20pet/h1.png" alt="doughnut">
+      <img id="donut" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561725898/virtual%20pet/h1.png"  alt="doughnut">
       <img id="star" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561725934/virtual%20pet/s1.png" alt="star">
            <img id="heart" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561725918/virtual%20pet/l1.png" alt="heart">
-      <img id="games" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561857776/virtual%20pet/gamesbox.png" alt="toy box">
-      <img id="pill" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561857719/virtual%20pet/medicene.png" alt="pill">
-      <img id="drink" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561857689/virtual%20pet/red-smoothie.png" alt="smoothie">
-      <img id="food" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561857661/virtual%20pet/sandwich.png" alt="sandwich">
+       <a onclick="myAudioFunction('laugh');"><img id="games" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561857776/virtual%20pet/gamesbox.png"  alt="toy box">
+     <a onclick="myAudioFunction('pill');"> <img id="pill" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561857719/virtual%20pet/medicene.png"  alt="pill">
+      <a onclick="myAudioFunction('slurp');"><img id="drink" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561857689/virtual%20pet/red-smoothie.png" alt="smoothie"></a>
+       <a onclick="myAudioFunction('munch');"> <img id="food" src="https://res.cloudinary.com/dytmcam8b/image/upload/v1561857661/virtual%20pet/sandwich.png" alt="sandwich"></a>
      <img class="benny">
+     </div>
     </div>
-    </div>
+    <div class="deathScreen1">
+      <span id="dead"></span> 
+    </div>  
+  <div class="bottom">
+  <button class="button button1" id="restart">Restart</button>
+  </div>
+  <div id="timer"></div>
   </body>
-<!-- partial -->
-  
-</body>
-</html>
