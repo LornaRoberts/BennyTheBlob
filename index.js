@@ -1,35 +1,33 @@
-//set up a timer that counts up in 1 min increments
+//game starts with life stats of 4 
 let hunger=4;
 let happiness=4;
 let health=4;
 
+//generate random number which determines which stat will decrease next
 function answer(){
 return Math.floor(Math.random() * 3)+1;
      }
 
+//duration counter
 var i=0;
 
-
+//initiates game on page load
   function timePassed(){
+    message();
+    screen();
     i++;
      answer();
      decrease();
      changeStar();
   changeDonut();
   changeHeart();
-     if (hunger==0|| happiness==0|| health==0){
-   clearInterval(timer);
-   hideScreen();
-       x();
-  }
-  }  
-    var timer= setInterval('timePassed()', 1000);
+   if (health === 0 || happiness === 0 || hunger === 0){      
+      clearInterval(timer);
+     dodo();
+      }
+  }var timer= setInterval(timePassed, 6000);
 
-//start x, y and z at 4
-
-
-
- //every minute take away 1 randomly from x, y or z 
+ //every minute take away 1 from one of the stats
 function decrease(){
      if (answer() === 1){
        hunger--;
@@ -37,40 +35,55 @@ function decrease(){
        health--;
      }else if(answer()===3){
        happiness--;
-     }};
-
-    
-  
-
-
-
-//on reaching 0, change screen. Give minutes survived.
-function showX(){
- var x = document.getElementById("game");
-     x.style.display = "block";
+     }
 }
-document.getElementById("restart").onclick = function restart() {
-  hideX();
-  showX();
-  timePassed();
-  health=4;
-  happiness=4;
-  hunger=4;
-    if (hunger==0|| happiness==0|| health==0){
-   clearInterval(timer);
-   hideScreen();
-       x();
-  }
+  //screen of death once one of the stats runs to zero
+function dodo(){
+    document.getElementById('dead').innerHTML = '<span class="deadline">Oh, no! You killed Benny! You survived for ' + i + ' blips. Can you do better next time?</span>';
+  groan();
 }
-function hideScreen() {
-  var y = document.getElementById("game");
-     y.style.display = "none";
-}
+
+  //click restart button and new game runs
+ function restart() {
+  i=0;
+   message();
+   health = 4;
+    happiness = 4;
+    hunger = 4;
+     screen();
+     timePassed();
+   if (health === 0 || happiness === 0 || hunger === 0){      
+      clearInterval(timer);    
+   }
+    } var timer = setInterval(timePassed, 6000);
+
  
-function hideX() {
-  var z = document.getElementById("dead");
-     z.style.display = "none";
+var button = document.getElementById('restart');
+
+button.onclick = function() {
+    restart();
+};
+
+//game elements are shown if all stats are above 0 or hidden if any stat is 0
+function screen() {
+ var y = document.getElementById("game");
+    if (hunger >0 && health > 0 && happiness >0) {
+    y.style.display= "block";
+}else if (hunger ===0 || health === 0 || happiness ===0){
+  y.style.display="none";
 }
+};
+
+  //either hides or shows life length depending on being dead or alive
+function message() {
+  var z = document.getElementById("dead");
+  if (hunger >0 && health > 0 && happiness >0) {
+    z.style.display= "none";
+}else if (hunger ===0 || health === 0 || happiness ===0){
+  z.style.display="block";
+}}
+
+  //changes star jpg depending on stat level
  function changeStar() {
             var star = document.getElementById('star');
             if (happiness===4) {
@@ -84,7 +97,8 @@ function hideX() {
               star.src = "https://res.cloudinary.com/dytmcam8b/image/upload/v1561725934/virtual%20pet/s4.png";
             }
  }
-            
+           
+  //changes donut jpg depending on hunger stat
     
  function changeDonut() {
             var star = document.getElementById('donut');
@@ -100,8 +114,7 @@ function hideX() {
             }
  }           
 
-       
-    
+  //changes heart jpg depending on health stat level
  function changeHeart() {
             var star = document.getElementById('heart');
             if (health===4) {
@@ -116,13 +129,7 @@ function hideX() {
             }
  }      
 
-function x(){
-    document.getElementById('dead').innerHTML = '<span class="deadline">Oh, no! You killed Benny! You survived for ' + i + ' seconds. Can you do better next time?</span>';
-}
-  
-//when clicking on pill, food , game or drink, make a sou
-//on dying, make a sound.
-//have a restart button on the death screen
+//increase hunger stat if donut clicked
 
 document.getElementById("food").onclick= function feed(){
   if (hunger<4){
@@ -136,25 +143,29 @@ document.getElementById("drink").onclick= function feed(){
   }
 }
 
-
-document.getElementById("pill").onclick= function heal(){
+//increase health stat if pill clicked
+document.getElementById("pill1").onclick= function heal(){
   if (health<4){
     health++;
   }
 }
 
-
+//increase happiness stat if toys played with
 document.getElementById("games").onclick= function play(){
   if (happiness<4){
     happiness++;
   }
 }
 
+  //audio files
   var munchAudio = new Audio('https://res.cloudinary.com/dytmcam8b/video/upload/v1562342736/sounds/zapsplat_human_eat_biscuit_mouth_closed_28532.mp3');
      var slurpAudio = new Audio('https://res.cloudinary.com/dytmcam8b/video/upload/v1562342736/sounds/zapsplat_human_drink_from_glass_slurp_single_21665.mp3');
 var laughAudio = new Audio('https://res.cloudinary.com/dytmcam8b/video/upload/v1562343433/sounds/zapsplat_human_male_middle_aged_laugh_slightly_sinister_003_32379.mp3');
 var pillAudio = new Audio('https://res.cloudinary.com/dytmcam8b/video/upload/v1562343433/sounds/noisecreations_SFX-NCFREE02_Synth-Swell.mp3');
-     function myAudioFunction(verb) {
+var helloAudio = new Audio('https://res.cloudinary.com/dytmcam8b/video/upload/v1562343433/sounds/zapsplat_human_male_middle_aged_says_hello_002_15455.mp3');
+
+   
+    function myAudioFunction(verb) {
          if(verb === 'munch') {
              munchAudio.play();
          } else if(verb === 'slurp') {
@@ -163,5 +174,12 @@ var pillAudio = new Audio('https://res.cloudinary.com/dytmcam8b/video/upload/v15
            laughAudio.play();
          }else if(verb === 'pill'){
            pillAudio.play();
-         }
+         }else if(verb === 'hello'){
+                  helloAudio.play();
+          }
      }
+var audioGroan = new Audio('https://res.cloudinary.com/dytmcam8b/video/upload/v1562344222/sounds/zapsplat_human_breath_last_dying_003_15986.mp3');
+
+function groan(){
+  audioGroan.play();
+}
