@@ -105,7 +105,9 @@ p{
     width: 600px;
     margin-left: -40px;
   }
-  
+  #dead{
+    text-align: center;
+  }
   .benny{
     transform: scale(0.4);
     position: relative;
@@ -132,12 +134,12 @@ p{
     top: -354px;
     left: -60px;
   }
-  #pill{
+  #pill1{
     width: 90px;
     z-index: 200;
     bottom: 350px;
     left: -80px;
-  }
+      }
   #food{
     width: 90px;
     z-index: 200;
@@ -184,7 +186,7 @@ p{
     top: -495px;
     left: -200px;
   }
-   #pill{
+   #pill1{
     width: 90px;
     z-index: 200;
     bottom: 300px;
@@ -212,6 +214,11 @@ p{
     transform: scale(0.5);
    top: -650px;
   }
+  
+.button {
+   margin-top: 400px;
+  margin-left: 100px;
+}
 }
 
 .button {
@@ -246,20 +253,21 @@ p{
 @media only screen and (min-width: 600px){
   .button{
    font-size: 20px;
+    margin-top: 400px;
         }
-  .bottom{
-    margin-top: 170px;
-    margin-right: 100px;
-  }
+ 
  }
 
 @media only screen and (min-width: 1000px){
   .button{
    font-size: 20px;
+    margin-top: 600px;
     }
-  .bottom{
-   margin-top: 300px;
-    margin-right:0px;
+ 
+  #dead{
+    width: 400px;
+    height: 200px;
+    margin-right: -100px;
   }
  }
 
@@ -273,21 +281,20 @@ h2{
   text-align: center;
   margin: 0 auto;
   margin-top: -200px;
-  margin-left: 150px;
+  margin-left: 50px;
   }
 
 @media only screen and (min-width: 600px){
   .deathScreen1{
-    
-  margin-top: 00px;
-  margin-left: 200px;
+     margin-top: -200px;
+    text-align: center;
 }
 }
 
 @media only screen and (min-width: 1000px){
   .deathScreen1{
-  margin-top: -100px;
-  margin-left: 350px;
+    margin-left: 250px;
+    margin-bottom: -200px;
 }
 }
 
@@ -295,5 +302,5 @@ h2{
   font-size: 18px;
   font-family: 'Bangers', cursive;
   font-align: center;
-  margin-right: 100px;
+  margin-right: 70px;
 }
